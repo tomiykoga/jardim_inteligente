@@ -3,33 +3,58 @@
   "author": "Wellington",
   "editor": "wokwi",
   "parts": [
-    {"type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {}},
-    {"type": "wokwi-lcd1602", "id": "lcd1", "top": -240, "left": -60, "attrs": {"pins": "i2c"}},
-    {"type": "wokwi-dht22", "id": "dht1", "top": -57.3, "left": -207, "attrs": {"temperature": "25", "humidity": "55"}},
-    {"type": "wokwi-potentiometer", "id": "pot1", "top": 200, "left": -220, "attrs": {}},
-    {"type": "wokwi-relay-module", "id": "relay1", "top": -40, "left": 260, "attrs": {}},
-    {"type": "wokwi-led", "id": "led_irrig", "top": 90, "left": 270, "attrs": {"color": "blue", "label": "Irrigacao"}},
-    {"type": "wokwi-resistor", "id": "r1", "top": 170, "left": 230, "rotate": 90, "attrs": {"value": "220"}}
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -240, "left": -60, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -57.3, "left": -207, "attrs": { "temperature": "25", "humidity": "55" } },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 200, "left": -220, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": -40, "left": 260, "attrs": {} },
+    { "type": "wokwi-led", "id": "led_irrig", "top": 90, "left": 270, "attrs": { "color": "blue", "label": "Irrigacao" } },
+    { "type": "wokwi-led", "id": "led_calor", "top": 90, "left": 340, "attrs": { "color": "red", "label": "Calor" } },
+    { "type": "wokwi-led", "id": "led_seco", "top": 90, "left": 410, "attrs": { "color": "yellow", "label": "Seco" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 170, "left": 230, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 170, "left": 300, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 170, "left": 370, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": 230, "left": 460, "attrs": { "volume": "0.3" } },
+    { "type": "wokwi-pushbutton", "id": "btn1", "top": 290, "left": 250, "attrs": { "color": "black", "label": "Silenciar" } }
   ],
   "connections": [
-    ["esp:TX", "$serialMonitor:RX", "", []],
-    ["esp:RX", "$serialMonitor:TX", "", []],
-    ["lcd1:GND", "esp:GND.2", "black", []],
-    ["lcd1:VCC", "esp:5V", "red", []],
-    ["lcd1:SDA", "esp:21", "green", []],
-    ["lcd1:SCL", "esp:22", "purple", []],
-    ["dht1:VCC", "esp:3V3", "red", []],
-    ["dht1:SDA", "esp:4", "green", []],
-    ["dht1:GND", "esp:GND.1", "black", []],
-    ["pot1:VCC", "esp:3V3", "red", []],
-    ["pot1:SIG", "esp:34", "orange", []],
-    ["pot1:GND", "esp:GND.1", "black", []],
-    ["relay1:VCC", "esp:5V", "red", []],
-    ["relay1:GND", "esp:GND.3", "black", []],
-    ["relay1:IN", "esp:26", "blue", []],
-    ["esp:27", "r1:1", "blue", []],
-    ["r1:2", "led_irrig:A", "blue", []],
-    ["led_irrig:C", "esp:GND.3", "black", []]
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "lcd1:GND", "esp:GND.2", "black", [] ],
+    [ "lcd1:VCC", "esp:5V", "red", [] ],
+    [ "lcd1:SDA", "esp:21", "green", [] ],
+    [ "lcd1:SCL", "esp:22", "purple", [] ],
+
+    [ "dht1:VCC", "esp:3V3", "red", [] ],
+    [ "dht1:SDA", "esp:4", "green", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [] ],
+
+    [ "pot1:VCC", "esp:3V3", "red", [] ],
+    [ "pot1:SIG", "esp:34", "orange", [] ],
+    [ "pot1:GND", "esp:GND.1", "black", [] ],
+
+    [ "relay1:VCC", "esp:5V", "red", [] ],
+    [ "relay1:GND", "esp:GND.3", "black", [] ],
+    [ "relay1:IN", "esp:26", "blue", [] ],
+
+    [ "esp:27", "r1:1", "blue", [] ],
+    [ "r1:2", "led_irrig:A", "blue", [] ],
+    [ "led_irrig:C", "esp:GND.3", "black", [] ],
+
+    [ "esp:32", "r2:1", "red", [] ],
+    [ "r2:2", "led_calor:A", "red", [] ],
+    [ "led_calor:C", "esp:GND.3", "black", [] ],
+
+    [ "esp:33", "r3:1", "gold", [] ],
+    [ "r3:2", "led_seco:A", "gold", [] ],
+    [ "led_seco:C", "esp:GND.3", "black", [] ],
+
+    [ "bz1:2", "esp:18", "magenta", [] ],
+    [ "bz1:1", "esp:GND.3", "black", [] ],
+
+    [ "btn1:1.l", "esp:14", "white", [] ],
+    [ "btn1:2.l", "esp:GND.1", "black", [] ]
   ],
   "dependencies": {}
 }
