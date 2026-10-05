@@ -6,7 +6,10 @@
     {"type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {}},
     {"type": "wokwi-lcd1602", "id": "lcd1", "top": -240, "left": -60, "attrs": {"pins": "i2c"}},
     {"type": "wokwi-dht22", "id": "dht1", "top": -57.3, "left": -207, "attrs": {"temperature": "25", "humidity": "55"}},
-    {"type": "wokwi-potentiometer", "id": "pot1", "top": 200, "left": -220, "attrs": {}}
+    {"type": "wokwi-potentiometer", "id": "pot1", "top": 200, "left": -220, "attrs": {}},
+    {"type": "wokwi-relay-module", "id": "relay1", "top": -40, "left": 260, "attrs": {}},
+    {"type": "wokwi-led", "id": "led_irrig", "top": 90, "left": 270, "attrs": {"color": "blue", "label": "Irrigacao"}},
+    {"type": "wokwi-resistor", "id": "r1", "top": 170, "left": 230, "rotate": 90, "attrs": {"value": "220"}}
   ],
   "connections": [
     ["esp:TX", "$serialMonitor:RX", "", []],
@@ -20,7 +23,13 @@
     ["dht1:GND", "esp:GND.1", "black", []],
     ["pot1:VCC", "esp:3V3", "red", []],
     ["pot1:SIG", "esp:34", "orange", []],
-    ["pot1:GND", "esp:GND.1", "black", []]
+    ["pot1:GND", "esp:GND.1", "black", []],
+    ["relay1:VCC", "esp:5V", "red", []],
+    ["relay1:GND", "esp:GND.3", "black", []],
+    ["relay1:IN", "esp:26", "blue", []],
+    ["esp:27", "r1:1", "blue", []],
+    ["r1:2", "led_irrig:A", "blue", []],
+    ["led_irrig:C", "esp:GND.3", "black", []]
   ],
   "dependencies": {}
 }
