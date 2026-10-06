@@ -74,7 +74,7 @@ jardim_inteligente/
 ### Passo a passo
 1. Baixe o repositório (**Code → Download ZIP**) ou clone:
    ```bash
-   git clone https://github.com/tomiy_koga/jardim_inteligente.git
+   git clone https://github.com/tomiykoga/jardim_inteligente
    ```
 2. Coloque a pasta em um caminho **sem espaços e sem acentos**, por exemplo `C:\Projetos\jardim_inteligente`.
 3. No VS Code: **File → Open Folder** e selecione a pasta `jardim_inteligente`.
