@@ -4,7 +4,7 @@ Sistema embarcado com **ESP32** que monitora o microclima e o solo de um jardim,
 
 Projeto desenvolvido e simulado em **VS Code + PlatformIO + Wokwi Simulator**.
 
-> Trabalho complementar da **Avaliação NP1** — Sistemas Microcontrolados — Engenharia da Computação (UNIP).
+> Trabalho complementar da **Avaliação NP1** — Sistemas Digitais — Engenharia da Computação (UNIP).
 > Autor: **Wellington Koga**
 
 ---
@@ -58,8 +58,20 @@ jardim_inteligente/
 ├── diagram.json     # Circuito virtual (componentes e ligações)
 ├── src/
 │   └── main.cpp     # Firmware comentado
+├── docs/
+│   └── Relatorio_Jardim_Inteligente_WTSK_ABNT.pdf   # Relatório técnico do desenvolvimento
 └── README.md
 ```
+
+---
+
+## 📄 Documentação do desenvolvimento
+
+O processo completo de desenvolvimento está documentado no relatório técnico, formatado no padrão ABNT: [docs/Relatorio_Jardim_Inteligente_WTSK_ABNT.pdf](docs/Relatorio_Jardim_Inteligente_WTSK_ABNT.pdf).
+
+Ele traz a configuração do ambiente (VS Code, PlatformIO e Wokwi), a arquitetura de hardware, o diagrama de blocos, os arquivos de configuração, o código comentado, as duas melhorias implementadas e os testes com capturas de tela.
+
+O histórico de commits deste repositório mostra a evolução do projeto por etapas: teste do ambiente, projeto base, irrigação automática e alarme visual e sonoro.
 
 ---
 
@@ -74,7 +86,7 @@ jardim_inteligente/
 ### Passo a passo
 1. Baixe o repositório (**Code → Download ZIP**) ou clone:
    ```bash
-   git clone https://github.com/tomiykoga/jardim_inteligente
+   git clone https://github.com/tomiykoga/jardim_inteligente.git
    ```
 2. Coloque a pasta em um caminho **sem espaços e sem acentos**, por exemplo `C:\Projetos\jardim_inteligente`.
 3. No VS Code: **File → Open Folder** e selecione a pasta `jardim_inteligente`.
