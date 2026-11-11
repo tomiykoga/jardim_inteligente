@@ -1,7 +1,7 @@
 /*
  * ============================================================================
  *  ESTAÇÃO DE MONITORAMENTO DE JARDIM INTELIGENTE
- *  Sistemas Microcontrolados - Avaliação NP1 (Trabalho Complementar)
+ *  Sistemas Digitais - Avaliação NP1 (Trabalho Complementar)
  *  Plataforma: ESP32 DevKit + VS Code + PlatformIO + Wokwi
  * ============================================================================
  *
